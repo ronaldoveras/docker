@@ -1,0 +1,44 @@
+-- Criando uma imagem a partir de um Dockerfile
+docker build .
+
+-- Criando uma imagem e dando uma tag para ela (-t)
+docker build -t ronaldoveras/redis:lastest .
+
+-- Rodando um conteiner e expondo a porta
+docker run -p 8080:8080 e1174a786df2
+
+-- Remover imagem
+docker rmi 4262c4524f98
+
+--Remover container 
+docker rm ID_CONTAINER
+
+--Docker compose
+docker-compose up (startando)
+
+docker-compose up -d (background)
+
+docker-compose down (finalizando)
+
+-- Rodando uma React web app com volumes
+
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+#Copia os folders public e src para a pasta '/app' do container
+COPY . .
+
+CMD ["npm","run","start"]
+
+#docker run -p 3000:3000 28cde0ad5aa5
+#docker build -f Dockerfile.dev  .
+
+
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 2464db9fe642
+
+-- 
+
