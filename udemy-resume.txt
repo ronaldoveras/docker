@@ -40,5 +40,6 @@ CMD ["npm","run","start"]
 
 docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 2464db9fe642
 
--- 
+-- Rodando nginx 
+docker run -p 8080:80 1759f736e0b7
 
